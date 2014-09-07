@@ -38,7 +38,7 @@ public class UserServiceImpl implements UserService {
 		updateUser.setBirthOfDay(user.getBirthOfDay());
 		updateUser.setEmail(user.getEmail());
 		updateUser.setActive(user.isActive());
-		return updateUser;
+		return userRepository.save(updateUser);
 	}
 
 	@Override

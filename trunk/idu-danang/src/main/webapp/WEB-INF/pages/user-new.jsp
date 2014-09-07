@@ -28,7 +28,7 @@
 				</tr>
 				<tr>
 					<td>Gender:</td>
-					<td colspan="2"><form:input path="gender" /></td>
+					<td colspan="2"><form:select path="gender" items="${gender}" /></td>
 				</tr>
 				<tr>
 					<td>Birthday:</td>
@@ -37,10 +37,6 @@
 				<tr>
 					<td>Email:</td>
 					<td colspan="2"><form:input path="email" /></td>
-				</tr>
-				<tr>
-					<td>Active:</td>
-					<td colspan="2"><form:input path="active" /></td>
 				</tr>
 				<tr>
 					<td colspan="3"><input type="submit" value="Create" /></td>
