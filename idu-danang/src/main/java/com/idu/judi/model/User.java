@@ -4,6 +4,8 @@ import java.util.Date;
 
 import javax.persistence.*;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name = "User")
 public class User {
@@ -26,6 +28,7 @@ public class User {
 	private boolean gender;
 
 	@Column(name = "birthOfDay")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date birthOfDay;
 
 	@Column(name = "email")

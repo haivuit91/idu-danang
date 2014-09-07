@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -12,8 +13,8 @@
 	<br />
 	<i>${message}</i>
 	<br />
-	<a href="${pageContext.request.contextPath}/user/create">Create
-		a new user</a>
+	<a href="${pageContext.request.contextPath}/user/create">Create a
+		new user</a>
 	<br />
 	<table style="text-align: center;" border="1px" cellpadding="0"
 		cellspacing="0">
@@ -37,8 +38,9 @@
 					<td>${user.userName}</td>
 					<td>${user.pwd}</td>
 					<td>${user.fullName}</td>
-					<td>${user.gender}</td>
-					<td>${user.birthOfDay}</td>
+					<td>${user.gender == true ? 'Male' : 'Female'}</td>
+					<td><fmt:formatDate value="${user.birthOfDay}"
+							pattern="dd/MM/yyyy" /></td>
 					<td>${user.email}</td>
 					<td>${user.active}</td>
 					<td><a

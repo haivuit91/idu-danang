@@ -1,6 +1,8 @@
 package com.idu.judi.controller;
 
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.validation.Valid;
 
@@ -39,14 +41,18 @@ public class UserController {
 	@RequestMapping(value = "/create", method = RequestMethod.GET)
 	public ModelAndView newUserPage() {
 		ModelAndView mav = new ModelAndView("user-new", "user", new User());
+		Map<String, String> gender = new LinkedHashMap<String, String>();
+		gender.put("true", "Male");
+		gender.put("false", "Female");
+		mav.addObject("gender", gender);
 		return mav;
 	}
 
 	@RequestMapping(value = "/create", method = RequestMethod.POST)
 	public ModelAndView createNewUser(@ModelAttribute @Valid User user,
 			BindingResult result, final RedirectAttributes redirectAttributes) {
-//		if (result.hasErrors())
-//			return new ModelAndView("user-new");
+		// if (result.hasErrors())
+		// return new ModelAndView("user-new");
 		ModelAndView mav = new ModelAndView();
 		String message = "User " + user.getFullName()
 				+ " was successfully created.";
@@ -69,6 +75,10 @@ public class UserController {
 		ModelAndView mav = new ModelAndView("user-edit");
 		User user = userService.findById(userID);
 		mav.addObject("user", user);
+		Map<String, String> gender = new LinkedHashMap<String, String>();
+		gender.put("true", "Male");
+		gender.put("false", "Female");
+		mav.addObject("gender", gender);
 		return mav;
 	}
 
@@ -77,13 +87,18 @@ public class UserController {
 			BindingResult result, @PathVariable Integer userID,
 			final RedirectAttributes redirectAttributes) throws UserNotFound {
 
+		System.out.println(user.getUserName());
+		System.out.println(user.getPwd());
+		System.out.println(user.getFullName());
+		System.out.println(user.isGender());
 		System.out.println(user.getBirthOfDay());
 		System.out.println(user.getEmail());
-//		if (result.hasErrors())
-//			return new ModelAndView("user-edit");
+		// if (result.hasErrors())
+		// return new ModelAndView("user-edit");
 
 		ModelAndView mav = new ModelAndView("redirect:/user/list");
-		String message = "User was successfully updated.";
+		String message = "User " + user.getFullName()
+				+ " was successfully updated.";
 
 		userService.update(user);
 
