@@ -32,7 +32,7 @@ public interface UserService {
 	 *            The id of the deleted user.
 	 * @return The deleted user.
 	 */
-	public User delete(int userID) throws UserNotFound;
+	public User delete(int userId) throws UserNotFound;
 
 	/**
 	 * Finds all user.
@@ -48,6 +48,15 @@ public interface UserService {
 	 *            The id of the wanted user.
 	 * @return The found user. If no user is found, this method returns null.
 	 */
-	public User findById(int userID);
+	public User findById(int userId);
+	
+	/**
+	 * Finds user by role.
+	 * 
+	 * @param id
+	 *            The id of the wanted user.
+	 * @return The found user. If no user is found, this method returns null.
+	 */
+	public User findByRole(int role);
 
 }

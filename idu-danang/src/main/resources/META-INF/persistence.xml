@@ -2,6 +2,10 @@
 	version="1.0">
 	<persistence-unit name="spring-jpa" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		<class>com.idu.judi.model.Category</class>
+		<class>com.idu.judi.model.New</class>
+		<class>com.idu.judi.model.Role</class>
+		<class>com.idu.judi.model.User</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.hbm2ddl.auto" value="create-update" />

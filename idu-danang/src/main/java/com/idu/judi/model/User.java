@@ -1,84 +1,98 @@
 package com.idu.judi.model;
 
-import java.util.Date;
-
 import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.idu.judi.converter.RoleConverter;
+
+import java.util.Date;
+import java.util.List;
+
+/**
+ * The persistent class for the user database table.
+ * 
+ */
 @Entity
-@Table(name = "User")
+@NamedQuery(name = "User.findAll", query = "SELECT u FROM User u")
 public class User {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name = "userID")
-	private int userID;
+	private int userId;
 
-	@Column(name = "userName")
-	private String userName;
+	private byte active;
 
-	@Column(name = "pwd")
-	private String pwd;
+	private String address;
 
-	@Column(name = "fullName")
-	private String fullName;
+	private String avatarPath;
 
-	@Column(name = "gender")
-	private boolean gender;
-
-	@Column(name = "birthOfDay")
+	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	private Date birthOfDay;
 
-	@Column(name = "email")
 	private String email;
 
-	@Column(name = "active")
-	private boolean active;
+	private String fullName;
 
-	public int getUserID() {
-		return userID;
+	private byte gender;
+
+	private String idActive;
+
+	private String idCard;
+
+	private String phoneNumber;
+
+	private String pwd;
+
+	private String userName;
+
+	// bi-directional many-to-one association to New
+	@OneToMany(mappedBy = "user")
+	private List<New> news;
+
+	// bi-directional many-to-one association to Role
+	@ManyToOne
+	@JoinColumn(name = "roleId")
+	@Convert(converter = RoleConverter.class)
+	private Role role;
+
+	public User() {
 	}
 
-	public void setUserID(int userID) {
-		this.userID = userID;
+	public int getUserId() {
+		return this.userId;
 	}
 
-	public String getUserName() {
-		return userName;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public byte getActive() {
+		return this.active;
 	}
 
-	public String getPwd() {
-		return pwd;
+	public void setActive(byte active) {
+		this.active = active;
 	}
 
-	public void setPwd(String pwd) {
-		this.pwd = pwd;
+	public String getAddress() {
+		return this.address;
 	}
 
-	public String getFullName() {
-		return fullName;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
-	public void setFullName(String fullName) {
-		this.fullName = fullName;
+	public String getAvatarPath() {
+		return this.avatarPath;
 	}
 
-	public boolean isGender() {
-		return gender;
-	}
-
-	public void setGender(boolean gender) {
-		this.gender = gender;
+	public void setAvatarPath(String avatarPath) {
+		this.avatarPath = avatarPath;
 	}
 
 	public Date getBirthOfDay() {
-		return birthOfDay;
+		return this.birthOfDay;
 	}
 
 	public void setBirthOfDay(Date birthOfDay) {
@@ -86,18 +100,97 @@ public class User {
 	}
 
 	public String getEmail() {
-		return email;
+		return this.email;
 	}
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-	public boolean isActive() {
-		return active;
+	public String getFullName() {
+		return this.fullName;
 	}
 
-	public void setActive(boolean active) {
-		this.active = active;
+	public void setFullName(String fullName) {
+		this.fullName = fullName;
 	}
+
+	public byte getGender() {
+		return this.gender;
+	}
+
+	public void setGender(byte gender) {
+		this.gender = gender;
+	}
+
+	public String getIdActive() {
+		return this.idActive;
+	}
+
+	public void setIdActive(String idActive) {
+		this.idActive = idActive;
+	}
+
+	public String getIdCard() {
+		return this.idCard;
+	}
+
+	public void setIdCard(String idCard) {
+		this.idCard = idCard;
+	}
+
+	public String getPhoneNumber() {
+		return this.phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public String getPwd() {
+		return this.pwd;
+	}
+
+	public void setPwd(String pwd) {
+		this.pwd = pwd;
+	}
+
+	public String getUserName() {
+		return this.userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+
+	public List<New> getNews() {
+		return this.news;
+	}
+
+	public void setNews(List<New> news) {
+		this.news = news;
+	}
+
+	public New addNew(New news) {
+		getNews().add(news);
+		news.setUser(this);
+
+		return news;
+	}
+
+	public New removeNew(New news) {
+		getNews().remove(news);
+		news.setUser(null);
+
+		return news;
+	}
+
+	public Role getRole() {
+		return this.role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
 }
