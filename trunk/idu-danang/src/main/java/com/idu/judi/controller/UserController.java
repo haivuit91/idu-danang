@@ -42,8 +42,8 @@ public class UserController {
 	public ModelAndView newUserPage() {
 		ModelAndView mav = new ModelAndView("user-new", "user", new User());
 		Map<String, String> gender = new LinkedHashMap<String, String>();
-		gender.put("true", "Male");
-		gender.put("false", "Female");
+		gender.put("1", "Male");
+		gender.put("0", "Female");
 		mav.addObject("gender", gender);
 		return mav;
 	}
@@ -70,29 +70,24 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/edit/{userID}", method = RequestMethod.GET)
-	public ModelAndView editUserPage(@PathVariable Integer userID) {
+	@RequestMapping(value = "/edit/{userId}", method = RequestMethod.GET)
+	public ModelAndView editUserPage(@PathVariable Integer userId) {
 		ModelAndView mav = new ModelAndView("user-edit");
-		User user = userService.findById(userID);
+		User user = userService.findById(userId);
 		mav.addObject("user", user);
 		Map<String, String> gender = new LinkedHashMap<String, String>();
-		gender.put("true", "Male");
-		gender.put("false", "Female");
+		gender.put("1", "Male");
+		gender.put("0", "Female");
 		mav.addObject("gender", gender);
+
 		return mav;
 	}
 
-	@RequestMapping(value = "/edit/{userID}", method = RequestMethod.POST)
+	@RequestMapping(value = "/edit/{userId}", method = RequestMethod.POST)
 	public ModelAndView editUser(@ModelAttribute @Valid User user,
-			BindingResult result, @PathVariable Integer userID,
+			BindingResult result, @PathVariable Integer userId,
 			final RedirectAttributes redirectAttributes) throws UserNotFound {
 
-		System.out.println(user.getUserName());
-		System.out.println(user.getPwd());
-		System.out.println(user.getFullName());
-		System.out.println(user.isGender());
-		System.out.println(user.getBirthOfDay());
-		System.out.println(user.getEmail());
 		// if (result.hasErrors())
 		// return new ModelAndView("user-edit");
 
@@ -106,13 +101,13 @@ public class UserController {
 		return mav;
 	}
 
-	@RequestMapping(value = "/delete/{userID}", method = RequestMethod.GET)
-	public ModelAndView deleteUser(@PathVariable Integer userID,
+	@RequestMapping(value = "/delete/{userId}", method = RequestMethod.GET)
+	public ModelAndView deleteUser(@PathVariable Integer userId,
 			final RedirectAttributes redirectAttributes) throws UserNotFound {
 
 		ModelAndView mav = new ModelAndView("redirect:/user/list");
 
-		User user = userService.delete(userID);
+		User user = userService.delete(userId);
 		String message = "User " + user.getFullName()
 				+ " was successfully deleted.";
 
