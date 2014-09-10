@@ -4,60 +4,83 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:h="http://java.sun.com/jsf/html"
-	xmlns:f="http://java.sun.com/jsf/core">
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
 
 <ui:composition template="/admin/common.xhtml">
 
 
 	<ui:define name="content">
-		<div class="row">
-			<div class="col-lg-12">
-				<h1 class="page-header">Add news</h1>
-			</div>
-		</div>
 		<h:form id="frm" enctype="multipart/form-data">
-	   		Result:<h:outputLabel>${newsManagement.resultMes}</h:outputLabel>
-			<table>
-				<tr>
-					<td>Title</td>
-					<td><h:inputText value="#{newsManagement.currentNews.title}"></h:inputText></td>
-				</tr>
-				<tr>
-					<td>Content</td>
-					<td><h:inputTextarea
-							value="#{newsManagement.currentNews.content}"></h:inputTextarea></td>
-				</tr>
-				<tr>
-					<td>Category</td>
-					<td><h:selectOneMenu
+			<div class="row">
+				<div class="col-md-12">
+					<h1 class="page-header">Add news</h1>
+				</div>
+			</div>
+
+			<c:if test="${newsManagement.resultMes != null}">
+				<div class="alert  alert-info alert-dismissible" role="alert" style="margin-top: 8px">
+					<button type="button" class="close" data-dismiss="alert">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					${newsManagement.resultMes}
+				</div>
+			</c:if>
+			
+			<div class="row">
+				<div class="col-md-12">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Title</label>
+						<h:inputText styleClass="form-control"
+							value="#{newsManagement.currentNews.title}"></h:inputText>
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">
+					<div class="col-md-4" style="padding-left: 0;padding-top: 5px">Content</div>
+					<div class="col-md-1" style="padding-top: 5px;">Category</div>
+					<div class="col-md-3">
+						<h:selectOneMenu styleClass="form-control"
 							value="#{newsManagement.currentNews.category}"
 							converter="#{categoryConverter}">
 							<f:selectItems value="#{newsManagement.listCategory}" var="item"
 								itemValue="#{item}" itemLabel="#{item.categoryName}" />
-						</h:selectOneMenu></td>
-				</tr>
-				<tr>
-					<td>Picture</td>
-					<td><h:inputFile id="file" value="#{newsManagement.image}" />
-					</td>
-				</tr>
-				<!-- <tr>
-					<td>Active</td>
-					<td>
-						<h:selectOneMenu value="#{newsManagement.currentNews.active}">
-							<f:selectItem itemValue="1" itemLabel="True"/>
-							<f:selectItem itemValue="0" itemLabel="False"/>
 						</h:selectOneMenu>
-					</td>
-				</tr> -->
-				<tr>
-					<td><h:commandButton action="#{newsManagement.create()}"
-							value="Create" /></td>
-				</tr>
-			</table>
+					</div>
+					<div class="col-md-1" style="padding-top: 5px">Image</div>
+					<div class="col-md-3" style="padding-right: 0">
+						<h:inputFile id="file" value="#{newsManagement.image}"
+							styleClass="form-control" />
+					</div>
+				</div>
+			</div>
+			<div class="row" style="margin-top: 10px">
+				<div class="row">
+					<div class="col-md-8">
+						<div class="form-group">
+							<h:inputTextarea styleClass="form-control"
+								style="height:342px;width:669px;margin-left:18px"
+								value="#{newsManagement.currentNews.content}"></h:inputTextarea>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<img class="img-thumbnail" style="width: 300px; height: 300px" />
+					</div>
+					<div class="row">
+						<div class="col-md-4" style="margin-top: 10px">
+							<div class="col-md-2" style="padding-left: 0">
+								<h:commandButton styleClass="btn btn-primary"
+									action="#{newsManagement.create()}" value="Create" />
+							</div>
+							<div class="col-md-2" style="margin-left: 30px">
+								<input type="reset" value="Clear" class="btn btn-primary"></input>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</h:form>
-
-
 	</ui:define>
 
 </ui:composition>
