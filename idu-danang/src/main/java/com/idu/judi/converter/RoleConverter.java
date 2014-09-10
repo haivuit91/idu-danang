@@ -1,46 +1,44 @@
 package com.idu.judi.converter;
 
-import javax.persistence.AttributeConverter;
-import javax.persistence.Converter;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.RequestScoped;
+import javax.faces.component.UIComponent;
+import javax.faces.context.FacesContext;
+import javax.faces.convert.Converter;
 
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.idu.judi.model.Role;
 import com.idu.judi.service.RoleService;
 
-@Converter(autoApply = true)
-public class RoleConverter implements AttributeConverter<Role, Integer> {
+@ManagedBean
+@RequestScoped
+public class RoleConverter implements Converter {
 
 	@Autowired
 	private RoleService roleService;
+	
 
 	@Override
-	public Integer convertToDatabaseColumn(Role attribute) {
-		// Integer id;
-		// if (attribute instanceof Role) {
-		// Role role = (Role) attribute;
-		// id = role.getRoleId();
-		// } else if (attribute instanceof Integer) {
-		// id = (Integer) attribute;
-		// }
-		// return id;
-		Role role = (Role) attribute;
-		return role.getRoleId();
+	public Object getAsObject(FacesContext arg0, UIComponent arg1, String arg2) {
+		System.out.println("str:" + arg2);
+		if(roleService == null)
+			System.out.println("nukk");
+		else
+			System.out.println("ok");
+		//return roleService.findRoleById(Integer.valueOf(arg2));
+		return null;
 	}
 
 	@Override
-	public Role convertToEntityAttribute(Integer dbData) {
-		Role role = null;
-		// if (dbData != null) {
-		// role = roleService.findById(dbData);
-		// role.getRoleId();
-		// }
-		// return role;
-
-		if (dbData != null) {
-			role = roleService.findById(dbData);
+	public String getAsString(FacesContext arg0, UIComponent arg1, Object arg2) {
+		try {
+			Role role = (Role) arg2;
+			return role.getRoleId() + "";
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return role;
+		return null;
 	}
 
 }
