@@ -8,14 +8,14 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class NavigationController {
 
-	/*@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "/", "index" }, method = RequestMethod.GET)
 	public ModelAndView index() {
 		return new ModelAndView("index");
 	}
 
-	@RequestMapping(value = { "admin" }, method = RequestMethod.GET)
+	@RequestMapping(value = { "admin/admin" }, method = RequestMethod.GET)
 	public ModelAndView userManager() {
 		return new ModelAndView("admin/admin");
-	}*/
+	}
 
 }
