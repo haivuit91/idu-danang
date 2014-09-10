@@ -32,12 +32,12 @@
 	</bean>
 
 	<!-- View Resolver -->
-	<bean id="viewResolver"
+	<!-- <bean id="viewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<property name="viewClass" value="org.springframework.faces.mvc.JsfView" />
 		<property name="prefix" value="/" />
 		<property name="suffix" value=".xhtml" />
-	</bean>
+	</bean> -->
 
 	<mvc:annotation-driven />
 
