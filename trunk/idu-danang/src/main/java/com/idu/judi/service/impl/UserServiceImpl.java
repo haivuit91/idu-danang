@@ -20,13 +20,14 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	@Transactional
-	public User create(User user) {
-		return userRepository.save(user);
+	public boolean create(User user) {
+		userRepository.save(user);
+		return true;
 	}
 
 	@Override
 	@Transactional(rollbackFor = UserNotFound.class)
-	public User update(User user) throws UserNotFound {
+	public boolean update(User user) throws UserNotFound {
 		User updateUser = userRepository.findOne(user.getUserId());
 		if (updateUser == null)
 			throw new UserNotFound();
@@ -39,17 +40,18 @@ public class UserServiceImpl implements UserService {
 		updateUser.setEmail(user.getEmail());
 		updateUser.setPhoneNumber(user.getPhoneNumber());
 		updateUser.setRole(user.getRole());
-		return userRepository.save(updateUser);
+		userRepository.save(updateUser);
+		return true;
 	}
 
 	@Override
 	@Transactional(rollbackFor = UserNotFound.class)
-	public User delete(int userId) throws UserNotFound {
+	public boolean delete(int userId) throws UserNotFound {
 		User deleteUser = userRepository.findOne(userId);
 		if (deleteUser == null)
 			throw new UserNotFound();
 		userRepository.delete(deleteUser);
-		return deleteUser;
+		return true;
 	}
 
 	@Override

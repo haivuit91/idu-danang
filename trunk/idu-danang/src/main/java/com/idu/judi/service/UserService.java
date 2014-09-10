@@ -14,7 +14,7 @@ public interface UserService {
 	 *            The information of the created user.
 	 * @return The created user.
 	 */
-	public User create(User user);
+	public boolean create(User user);
 
 	/**
 	 * Updates the information of a user.
@@ -23,7 +23,7 @@ public interface UserService {
 	 *            The information of the updated user.
 	 * @return The updated user.
 	 */
-	public User update(User user) throws UserNotFound;
+	public boolean update(User user) throws UserNotFound;
 
 	/**
 	 * Deletes a user.
@@ -32,7 +32,7 @@ public interface UserService {
 	 *            The id of the deleted user.
 	 * @return The deleted user.
 	 */
-	public User delete(int userId) throws UserNotFound;
+	public boolean delete(int userId) throws UserNotFound;
 
 	/**
 	 * Finds all user.
