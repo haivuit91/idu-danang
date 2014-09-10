@@ -48,7 +48,7 @@ public class User {
 
 	// bi-directional many-to-one association to New
 	@OneToMany(mappedBy = "user")
-	private List<New> news;
+	private List<News> news;
 
 	// bi-directional many-to-one association to Role
 	@ManyToOne
@@ -163,22 +163,22 @@ public class User {
 		this.userName = userName;
 	}
 
-	public List<New> getNews() {
+	public List<News> getNews() {
 		return this.news;
 	}
 
-	public void setNews(List<New> news) {
+	public void setNews(List<News> news) {
 		this.news = news;
 	}
 
-	public New addNew(New news) {
+	public News addNew(News news) {
 		getNews().add(news);
 		news.setUser(this);
 
 		return news;
 	}
 
-	public New removeNew(New news) {
+	public News removeNew(News news) {
 		getNews().remove(news);
 		news.setUser(null);
 
@@ -192,5 +192,13 @@ public class User {
 	public void setRole(Role role) {
 		this.role = role;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof User))
+			return false;
+		User u=(User)obj;
+		if(this.userId == u.getUserId())
+			return true;
+		return true;
+	}
 }
