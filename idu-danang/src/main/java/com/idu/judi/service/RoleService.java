@@ -11,7 +11,7 @@ public interface RoleService {
 	 * 
 	 * @return A list of role.
 	 */
-	public List<Role> findAll();
+	public List<Role> findAllRole();
 
 	/**
 	 * Finds user by roleId.
@@ -20,6 +20,6 @@ public interface RoleService {
 	 *            The id of the wanted role.
 	 * @return The found role. If no role is found, this method returns null.
 	 */
-	public Role findById(int role);
+	public Role findRoleById(int roleId);
 
 }

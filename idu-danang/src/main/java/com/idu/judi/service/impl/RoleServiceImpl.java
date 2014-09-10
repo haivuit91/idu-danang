@@ -4,23 +4,29 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import com.idu.judi.model.Role;
 import com.idu.judi.repository.RoleRepository;
 import com.idu.judi.service.RoleService;
 
+@Service
 public class RoleServiceImpl implements RoleService {
 
 	@Resource
 	private RoleRepository roleRepository;
 
 	@Override
-	public List<Role> findAll() {
+	@Transactional
+	public List<Role> findAllRole() {
 		return roleRepository.findAll();
 	}
 
 	@Override
-	public Role findById(int role) {
-		return roleRepository.findOne(role);
+	@Transactional
+	public Role findRoleById(int roleId) {
+		return roleRepository.findOne(roleId);
 	}
 
 }
