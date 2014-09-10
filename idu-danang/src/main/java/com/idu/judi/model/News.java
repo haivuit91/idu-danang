@@ -1,5 +1,7 @@
 package com.idu.judi.model;
 
+import java.sql.Date;
+
 import javax.persistence.*;
 
 /**
@@ -8,20 +10,20 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name = "news")
-@NamedQuery(name = "New.findAll", query = "SELECT n FROM New n")
-public class New {
+@NamedQuery(name = "New.findAll", query = "SELECT n FROM News n")
+public class News {
 
 	@Id
 	private int newsId;
 
-	private byte active;
+	private boolean active;
 
 	@Lob
 	private String content;
 
 	private String pathImage;
 
-	private String timeCreated;
+	private Date timeCreated;
 
 	private String title;
 
@@ -35,7 +37,7 @@ public class New {
 	@JoinColumn(name = "userId")
 	private User user;
 
-	public New() {
+	public News() {
 	}
 
 	public int getNewsId() {
@@ -46,11 +48,11 @@ public class New {
 		this.newsId = newsId;
 	}
 
-	public byte getActive() {
+	public boolean getActive() {
 		return this.active;
 	}
 
-	public void setActive(byte active) {
+	public void setActive(Boolean active) {
 		this.active = active;
 	}
 
@@ -70,11 +72,11 @@ public class New {
 		this.pathImage = pathImage;
 	}
 
-	public String getTimeCreated() {
+	public Date getTimeCreated() {
 		return this.timeCreated;
 	}
 
-	public void setTimeCreated(String timeCreated) {
+	public void setTimeCreated(Date timeCreated) {
 		this.timeCreated = timeCreated;
 	}
 
