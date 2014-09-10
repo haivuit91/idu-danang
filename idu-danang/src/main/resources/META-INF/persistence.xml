@@ -3,7 +3,7 @@
 	<persistence-unit name="spring-jpa" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
 		<class>com.idu.judi.model.Category</class>
-		<class>com.idu.judi.model.New</class>
+		<class>com.idu.judi.model.News</class>
 		<class>com.idu.judi.model.Role</class>
 		<class>com.idu.judi.model.User</class>
 		<properties>
