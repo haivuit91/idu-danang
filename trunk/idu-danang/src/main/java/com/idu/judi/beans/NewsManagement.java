@@ -56,7 +56,8 @@ public class NewsManagement {
 	
 	public NewsManagement(){
 		currentNews = new News(); 
-		currentNews.setActive(false);
+		resultMes = null;
+		
 	}
 
 	
@@ -64,9 +65,9 @@ public class NewsManagement {
 	public String delete(int newsId){
 		
 		if(newsService.delete(newsId))
-			resultMes = "Success";
+			resultMes = "Delete Success";
 		else
-			resultMes = "Fail";
+			resultMes = "Delete Fail";
 		return "news-manager.jsf";
 	}
 	public String active(News news){
@@ -78,9 +79,14 @@ public class NewsManagement {
 		return "news-manager.jsf";
 	}
 	public String preEdit(News news){
+		resultMes = null;
 		setOldTitle(news.getTitle());
 		setCurrentNews(news);
 		return "news-edit";
+	}
+	public String preAdd(){
+		resultMes = null;
+		return "news-add";
 	}
 	public String create(){
 		String path = "C:\\news\\";
@@ -96,9 +102,9 @@ public class NewsManagement {
 		}
 			
 		if(newsService.insert(currentNews))
-			resultMes = "Success";
+			resultMes = "Create Success";
 		else{
-			resultMes = "faile";
+			resultMes = "Create faile";
 			return null;
 		}
 		return "news-manager.jsf";
@@ -117,9 +123,9 @@ public class NewsManagement {
 			return null;
 		}
 		if(newsService.update(currentNews))
-			resultMes = "Success";
+			resultMes = "Update Success";
 		else{
-			resultMes = "faile";
+			resultMes = "Udapte faile";
 			return null;
 		}
 		return "news-manager.jsf";
