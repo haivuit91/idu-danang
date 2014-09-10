@@ -20,7 +20,7 @@ public class Category {
 
 	// bi-directional many-to-one association to New
 	@OneToMany(mappedBy = "category")
-	private List<New> news;
+	private List<News> news;
 
 	public Category() {
 	}
@@ -49,26 +49,35 @@ public class Category {
 		this.categoryName = categoryName;
 	}
 
-	public List<New> getNews() {
+	public List<News> getNews() {
 		return this.news;
 	}
 
-	public void setNews(List<New> news) {
+	public void setNews(List<News> news) {
 		this.news = news;
 	}
 
-	public New addNew(New news) {
+	public News addNew(News news) {
 		getNews().add(news);
 		news.setCategory(this);
 
 		return news;
 	}
 
-	public New removeNew(New news) {
+	public News removeNew(News news) {
 		getNews().remove(news);
 		news.setCategory(null);
 
 		return news;
 	}
-
+	@Override
+	public boolean equals(Object obj) {
+		if(!(obj instanceof Category))
+			return false;
+		Category category =(Category)obj;
+		if(this.categoryId == category.getCategoryId())
+			return true;
+		return false;
+		
+	}
 }
