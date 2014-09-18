@@ -6,28 +6,26 @@
 
 	<display-name>idu-danang</display-name>
 
-<!-- Spring -->
+	<!-- Spring -->
 	<context-param>
 		<param-name>contextConfigLocation</param-name>
 		<param-value>classpath:META-INF/application-config.xml</param-value>
 	</context-param>
-	
+
 	<!-- Log4j -->
-	<!-- <context-param>
-		<param-name>log4jConfigLocation</param-name>
-		<param-value>classpath:log4j2.xml</param-value>
-	</context-param> -->
-  
-   <!-- Change to "Production" when you are ready to deploy -->
-  <context-param>
-    <param-name>javax.faces.PROJECT_STAGE</param-name>
-    <param-value>Development</param-value>
-  </context-param>
-  
-  <context-param>
-    <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
-    <param-value>true</param-value>
-</context-param>
+	<!-- <context-param> <param-name>log4jConfigLocation</param-name> <param-value>classpath:log4j2.xml</param-value> 
+		</context-param> -->
+
+	<!-- Change to "Production" when you are ready to deploy -->
+	<context-param>
+		<param-name>javax.faces.PROJECT_STAGE</param-name>
+		<param-value>Development</param-value>
+	</context-param>
+
+	<context-param>
+		<param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+		<param-value>true</param-value>
+	</context-param>
 
 	<!-- Primefaces Theme -->
 	<context-param>
@@ -36,19 +34,10 @@
 	</context-param>
 
 	<!-- Spring Mapping -->
-	<!-- <servlet>
-		<servlet-name>dispatcher</servlet-name>
-		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-		<init-param>
-			<param-name>contextConfigLocation</param-name>
-			<param-value>classpath:META-INF/application-config.xml</param-value>
-		</init-param>
-		<load-on-startup>1</load-on-startup>
-	</servlet>
-	<servlet-mapping>
-		<servlet-name>dispatcher</servlet-name>
-		<url-pattern>/</url-pattern>
-	</servlet-mapping> -->
+	<!-- <servlet> <servlet-name>dispatcher</servlet-name> <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class> 
+		<init-param> <param-name>contextConfigLocation</param-name> <param-value>classpath:META-INF/application-config.xml</param-value> 
+		</init-param> <load-on-startup>1</load-on-startup> </servlet> <servlet-mapping> 
+		<servlet-name>dispatcher</servlet-name> <url-pattern>/</url-pattern> </servlet-mapping> -->
 
 	<!-- JSF Mapping -->
 	<servlet>
@@ -62,16 +51,16 @@
 	</servlet-mapping>
 
 	<!-- Add Support for Spring -->
-  <listener>
-	<listener-class>
-		org.springframework.web.context.ContextLoaderListener
-	</listener-class>
-  </listener>
-  <listener>
-	<listener-class>
-		org.springframework.web.context.request.RequestContextListener
-	</listener-class>
-  </listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.ContextLoaderListener
+		</listener-class>
+	</listener>
+	<listener>
+		<listener-class>
+			org.springframework.web.context.request.RequestContextListener
+		</listener-class>
+	</listener>
 
 	<!-- Welcome page -->
 	<welcome-file-list>
