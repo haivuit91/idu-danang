@@ -1,0 +1,276 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<ui:composition template="module/common.xhtml">
+		<ui:define name="pageTitle">
+			Home | IDU Danang
+		</ui:define>
+		<ui:define name="content">
+			<!-- Slider -->
+			<ui:include src="module/slider.xhtml" />
+			<!-- Content -->
+			<section id="feature">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-md-6">
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item"
+								src="//www.youtube.com/embed/BbBYXYO-J_E"></iframe>
+						</div>
+					</div>
+					<div class="col-sm-6 col-md-6">
+						<h2>WELCOME TO OUR BUSINESS YOUR</h2>
+						<h4>SOFTWARE DEVELOPING &amp; TESTING TEAMS IN VIETNAM!</h4>
+						<p>Axon Active Vietnam is specialized in providing
+							professional Offshore Software Development and Testing services
+							based on the Offshore Development Center (ODC) and Offshore
+							Testing Center (OTC) approaches. We help companies by
+							establishing the development and testing processes and choosing
+							tools and infrastructure to adapt to the specific needs of each
+							customer. Have an idea? We’ll provide the solution.</p>
+					</div>
+				</div>
+			</div>
+			</section>
+
+			<section id="services" class="service-item">
+			<div class="container">
+				<div class="center wow fadeInDown">
+					<h2>Our Service</h2>
+				</div>
+
+				<div class="row">
+
+					<div class="col-sm-6 col-md-4">
+						<div class="media services-wrap wow fadeInDown">
+							<div class="pull-left">
+								<img class="img-responsive"
+									src="#{resource['images/services/services1.png']}" />
+							</div>
+							<div class="media-body">
+								<h3 class="media-heading">SEO Marketing</h3>
+								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-4">
+						<div class="media services-wrap wow fadeInDown">
+							<div class="pull-left">
+								<img class="img-responsive"
+									src="#{resource['images/services/services2.png']}" />
+							</div>
+							<div class="media-body">
+								<h3 class="media-heading">SEO Marketing</h3>
+								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-sm-6 col-md-4">
+						<div class="media services-wrap wow fadeInDown">
+							<div class="pull-left">
+								<img class="img-responsive"
+									src="#{resource['images/services/services6.png']}" />
+							</div>
+							<div class="media-body">
+								<h3 class="media-heading">SEO Marketing</h3>
+								<p>Lorem ipsum dolor sit ame consectetur adipisicing elit</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+
+			<section id="content">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 wow fadeInDown">
+						<div class="tab-wrap">
+							<div class="media">
+								<div class="parrent pull-left">
+									<ul class="nav nav-tabs nav-stacked">
+										<li class=""><a href="#tab1" data-toggle="tab"
+											class="analistic-01">Responsive Web Design</a></li>
+										<li class="active"><a href="#tab2" data-toggle="tab"
+											class="analistic-02">Premium Plugin Included</a></li>
+										<li class=""><a href="#tab3" data-toggle="tab"
+											class="tehnical">Predefine Layout</a></li>
+										<li class=""><a href="#tab4" data-toggle="tab"
+											class="tehnical">Our Philosopy</a></li>
+										<li class=""><a href="#tab5" data-toggle="tab"
+											class="tehnical">What We Do?</a></li>
+									</ul>
+								</div>
+
+								<div class="parrent media-body">
+									<div class="tab-content">
+										<div class="tab-pane fade" id="tab1">
+											<div class="media">
+												<div class="pull-left">
+													<img class="img-responsive"
+														src="#{resource['images/tab2.png']}" />
+												</div>
+												<div class="media-body">
+													<h2>Adipisicing elit</h2>
+													<p>There are many variations of passages of Lorem Ipsum
+														available, but the majority have suffered alteration in
+														some form, by injected humour, or randomised words which
+														don't look even slightly believable. If you are going to
+														use.</p>
+												</div>
+											</div>
+										</div>
+
+										<div class="tab-pane fade active in" id="tab2">
+											<div class="media">
+												<div class="pull-left">
+													<img class="img-responsive"
+														src="#{resource['images/tab1.png']}" />
+												</div>
+												<div class="media-body">
+													<h2>Adipisicing elit</h2>
+													<p>There are many variations of passages of Lorem Ipsum
+														available, but the majority have suffered alteration in
+														some form, by injected humour, or randomised words which
+														don't look even slightly believable. If you are going to
+														use.</p>
+												</div>
+											</div>
+										</div>
+
+										<div class="tab-pane fade" id="tab3">
+											<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+												elit, sed do eiusmod tempor incididunt ut labore et dolore
+												magna aliqua. Ut enim ad minim veniam, quis nostrud
+												exercitation ullamco laboris nisi ut aliquip ex ea commodo
+												consequat. Duis aute irure dolor in reprehenderit.</p>
+										</div>
+
+										<div class="tab-pane fade" id="tab4">
+											<p>There are many variations of passages of Lorem Ipsum
+												available, but the majority have suffered alteration in some
+												form, by injected humour, or randomised words which don't
+												look even slightly believable. If you are going to use a
+												passage of Lorem Ipsum, you need to be sure there isn't
+												anything embarrassing hidden in the middle of text. All the
+												Lorem Ipsum generators on the Internet tend to repeat
+												predefined chunks as necessary, making this the first true
+												generator on the Internet. It uses a dictionary of over 200
+												Latin words</p>
+										</div>
+
+										<div class="tab-pane fade" id="tab5">
+											<p>There are many variations of passages of Lorem Ipsum
+												available, but the majority have suffered alteration in some
+												form, by injected humour, or randomised words which don't
+												look even slightly believable. If you are going to use a
+												passage of Lorem Ipsum, you need to be sure there isn't
+												anything embarrassing hidden in the middle of text. All the
+												Lorem Ipsum generators on the Internet tend to repeat
+												predefined chunks as necessary, making this the first true
+												generator on the Internet. It uses a dictionary of over 200
+												Latin words, combined with a handful of model sentence
+												structures,</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-xs-12 col-sm-4 wow fadeInDown">
+						<div class="testimonial">
+							<h2>Testimonials</h2>
+							<div class="media testimonial-inner">
+								<div class="pull-left">
+									<img class="img-responsive img-circle"
+										src="#{resource['images/testimonials1.png']}" />
+								</div>
+								<div class="media-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt</p>
+									<span><strong>-John Doe/</strong> Director of
+										corlate.com</span>
+								</div>
+							</div>
+
+							<div class="media testimonial-inner">
+								<div class="pull-left">
+									<img class="img-responsive img-circle"
+										src="#{resource['images/testimonials1.png']}" />
+								</div>
+								<div class="media-body">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing
+										elit, sed do eiusmod tempor incididunt</p>
+									<span><strong>-John Doe/</strong> Director of
+										corlate.com</span>
+								</div>
+							</div>
+
+						</div>
+					</div>
+
+				</div>
+			</div>
+			</section>
+
+			<section id="partner">
+			<div class="container">
+				<div class="center wow fadeInDown">
+					<h2>Our Partners</h2>
+				</div>
+
+				<div class="partners">
+					<ul>
+						<li><a href="#"><img
+								class="img-responsive wow fadeInDown" data-wow-duration="1000ms"
+								data-wow-delay="300ms"
+								src="#{resource['images/partners/partner1.png']}" /></a></li>
+						<li><a href="#"><img
+								class="img-responsive wow fadeInDown" data-wow-duration="1000ms"
+								data-wow-delay="600ms"
+								src="#{resource['images/partners/partner2.png']}" /></a></li>
+						<li><a href="#"><img
+								class="img-responsive wow fadeInDown" data-wow-duration="1000ms"
+								data-wow-delay="900ms"
+								src="#{resource['images/partners/partner3.png']}" /></a></li>
+						<li><a href="#"><img
+								class="img-responsive wow fadeInDown" data-wow-duration="1000ms"
+								data-wow-delay="1200ms"
+								src="#{resource['images/partners/partner4.png']}" /></a></li>
+						<li><a href="#"><img
+								class="img-responsive wow fadeInDown" data-wow-duration="1000ms"
+								data-wow-delay="1500ms"
+								src="#{resource['images/partners/partner6.png']}" /></a></li>
+					</ul>
+				</div>
+			</div>
+			</section>
+
+			<section id="conatcat-info">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8">
+						<div class="media contact-info wow fadeInDown"
+							data-wow-duration="1000ms" data-wow-delay="600ms">
+							<div class="pull-left">
+								<i class="fa fa-quote-left"></i>
+							</div>
+							<div class="media-body">
+								<h2>OUR PHILOSOPHY</h2>
+								<p>We are not a stop along the way, We are a destination.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			</section>
+		</ui:define>
+	</ui:composition>
+</h:body>
+</html>

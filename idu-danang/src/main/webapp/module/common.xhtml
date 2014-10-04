@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+	<title><ui:insert name="pageTitle">IDU Danang</ui:insert></title>
+
+	<!-- Core CSS -->
+	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+	<h:outputStylesheet library="css" name="font-awesome.min.css" />
+	<h:outputStylesheet library="css" name="animate.min.css" />
+	<h:outputStylesheet library="css" name="prettyPhoto.css" />
+	<h:outputStylesheet library="css" name="main.css" />
+	<h:outputStylesheet library="css" name="responsive.css" />
+
+	<link href="#{resource['images/ico/favicon.ico']}" rel="shortcut icon"
+		type="image/x-icon" />
+</h:head>
+
+<h:body class="homepage">
+	<!-- Header -->
+	<ui:insert name="header">
+		<ui:include src="header.xhtml" />
+	</ui:insert>
+
+	<!-- Slider -->
+	<!-- <ui:insert name="slider">
+		<ui:include src="slider.xhtml" />
+	</ui:insert> -->
+
+	<!-- Content -->
+	<ui:insert name="content">
+		Theme Bootstrap
+	</ui:insert>
+
+	<!-- Footer -->
+	<ui:insert name="footer">
+		<ui:include src="footer.xhtml" />
+	</ui:insert>
+
+	<!-- Include Form Login -->
+	<ui:include src="dialog-login.xhtml" />
+
+	<h:outputScript library="js" name="jquery.js" />
+	<h:outputScript library="js" name="bootstrap.min.js" />
+	<h:outputScript library="js" name="jquery.prettyPhoto.js" />
+	<h:outputScript library="js" name="jquery.isotope.min.js" />
+	<h:outputScript library="js" name="main.js" />
+	<h:outputScript library="js" name="wow.min.js" />
+
+	<!-- Script -->
+	<script type="text/javascript">
+		/* Menu Handler */
+		$(function(){
+			var url = window.location.pathname;  
+			var activePage = url.substring(url.lastIndexOf('/')+1);
+			$('.nav li a').each(function(){  
+				var currentPage = this.href.substring(this.href.lastIndexOf('/')+1);
+	
+				if (activePage == currentPage) {
+					$(this).parent().addClass('active'); 
+				}
+			});
+		});
+		
+		/* Modal Login */
+		/* $('#loginModal').modal().css(
+        {
+	        'margin-top': function () {
+	        	return -($(this).height() / 2);
+	        }
+        }) */
+	</script>
+
+	<!-- Css -->
+	<style type="text/css" media="all">
+/* Modal Login */
+#loginModal {
+	top: 20%;
+	outline: none;
+}
+</style>
+</h:body>
+
+</html>
