@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="module/common.xhtml">
+	<ui:define name="pageTitle">
+			IDU Danang Registration | IDU Danang
+		</ui:define>
+	<ui:define name="content">
+		<section id="portfolio">
+		<div class="container wow fadeInDown">
+			<div class="center">
+				<h2>Please Sign Up</h2>
+				<p class="top-title">It's free and always will be.</p>
+			</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-3"></div>
+				<div class="col-sm-6 col-md-6">
+					<div class="return-login"><a href="#"><i class="fa fa-reply-all"></i> Login</a></div>
+					<div class="register">
+						<div class="status alert alert-success" style="display: none"></div>
+						<form id="register-form" name="register-form">
+							<div class="form-group">
+								<label>Your Name *</label> <input type="text" name="name"
+									class="form-control login_box" required="required" />
+							</div>
+							<div class="form-group">
+								<label>User Name *</label> <input type="text" name="name"
+									class="form-control login_box" required="required" />
+							</div>
+							<div class="form-group">
+								<label>Password *</label> <input type="password" name="name"
+									class="form-control login_box" required="required" />
+							</div>
+							<div class="form-group">
+								<label>Confirm Password *</label> <input type="password"
+									name="name" class="form-control login_box" required="required" />
+							</div>
+							<div class="form-group">
+								<label>Your Email *</label> <input type="email" name="email"
+									class="form-control login_box" required="required" />
+							</div>
+							<button class="btn btn-lg btn-primary btn-block" type="submit">Sign
+								Up</button>
+							<button class="btn btn-lg btn-primary btn-block btn-login"
+								type="submit">Sign up via Google+</button>
+						</form>
+					</div>
+				</div>
+				<div class="col-sm-6 col-md-3"></div>
+			</div>
+		</div>
+		</section>
+	</ui:define>
+</ui:composition>
+</html>

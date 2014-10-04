@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="module/common.xhtml">
+	<ui:define name="pageTitle">
+			Contact | IDU Danang
+		</ui:define>
+	<ui:define name="content">
+		<section id="contact-info">
+		<div class="gmap-area">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-7 text-center">
+						<div class="gmap">
+							<iframe
+								src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3833.921545271442!2d108.2128107!3d16.0695605!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3142184a0f24d607%3A0xfcd571ab89cda287!2zMjM1IMOUbmcgw41jaCBLaGnDqm0sIEjhuqNpIENow6J1IDIsIEjhuqNpIENow6J1LCDEkMOgIE7hurVuZywgVmlldG5hbQ!5e0!3m2!1sen!2s!4v1410484175353"
+								width="600" height="450" frameborder="0" style="border: 0"></iframe>
+						</div>
+					</div>
+
+					<div class="col-sm-5 map-content">
+						<ul class="row wow fadeInDown">
+							<li>
+								<address>
+									<h2>CONTACT DETAILS</h2>
+									<p>235/30 Ong Ich Khiem Str., Hai Chau 2 Ward, Hai Chau
+										Dist., Da Nang City, Vietnam.</p>
+									<p>
+										<b>Tel:</b> <br /> +84905 68 55 91
+									</p>
+									<p>
+										<b>Web:</b> <br /> <a href="www.idu-danang.com.vn"
+											style="color: #006EFF">www.idu-danang.com.vn</a>
+									</p>
+									<p>
+										<b>Email:</b> <br /> <a href="info@idu-danang.com.vn"
+											style="color: #006EFF">info@idu-danang.com.vn</a>
+									</p>
+								</address>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		</section>
+		<!--/gmap_area -->
+
+		<section id="contact-page">
+		<div class="container wow fadeInDown">
+			<div class="center">
+				<h2>WE'D LOVE TO HEAR FROM YOU</h2>
+				<p class="lead">We're beside you every step of the way. Please
+					feel free to contact us using our contact data or the form below.
+					We will be in touch shortly.</p>
+			</div>
+			<div class="row contact-wrap">
+				<div class="status alert alert-success" style="display: none"></div>
+				<form id="main-contact-form" class="contact-form"
+					name="contact-form" method="post" action="sendemail.php">
+					<div class="col-sm-5 col-sm-offset-1">
+						<div class="form-group">
+							<label>Your Name *</label> <input type="text" name="name"
+								class="form-control" required="required" />
+						</div>
+						<div class="form-group">
+							<label>Your Email *</label> <input type="email" name="email"
+								class="form-control" required="required" />
+						</div>
+						<div class="form-group">
+							<label>Your Subject *</label> <input type="text"
+								class="form-control" required="required" />
+						</div>
+					</div>
+					<div class="col-sm-5">
+						<div class="form-group">
+							<label>Message *</label>
+							<textarea name="message" id="message" required="required"
+								class="form-control" rows="8"></textarea>
+						</div>
+						<div class="form-group">
+							<button type="submit" name="submit"
+								class="btn btn-primary btn-lg" required="required">Submit
+								Message</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+		</section>
+	</ui:define>
+</ui:composition>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:body>
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog"
+		aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header" style="text-align: center;">
+					<button type="button" class="close" data-dismiss="modal">
+						<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+					</button>
+					<h2 class="modal-title" id="loginModalLabel"
+						style="font-weight: bold; font-size: 2.1em;">Sign in to your Account</h2>
+				</div>
+				<div class="modal-body">
+					<form class="form-signin">
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-user"></i></span>
+							<input type="text" class="form-control login_box"
+							autocomplete="off" placeholder="Username or Email Address" />
+						</div>
+						<div class="input-group">
+							<span class="input-group-addon"><i class="fa fa-lock"></i></span>
+							<input type="password" class="form-control login_box"
+							autocomplete="off" placeholder="Password" />
+						</div>
+						<div class="input-group">
+							<div class="checkbox">
+                            	<label>
+                                	<input id="login-remember" type="checkbox" name="remember" value="1" /> Remember me
+                            	</label>
+                            </div>
+						</div>
+						<button class="btn btn-lg btn-primary btn-block" type="submit">Sign In</button>
+						<button class="btn btn-lg btn-primary btn-block btn-login" type="submit">Sign in with Google+</button>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<a class="forgot-pass" href="#">Forgot your password?</a>
+					<span class="signup">Don't have an account! <a href="register.jsf">Sign Up Here</a></span>
+				</div>
+			</div>
+		</div>
+	</div>
+</h:body>
+</html>
