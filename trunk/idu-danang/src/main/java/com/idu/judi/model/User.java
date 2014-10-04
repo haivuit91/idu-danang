@@ -4,8 +4,6 @@ import javax.persistence.*;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
-import com.idu.judi.converter.RoleConverter;
-
 import java.util.Date;
 import java.util.List;
 
@@ -53,7 +51,6 @@ public class User {
 	// bi-directional many-to-one association to Role
 	@ManyToOne
 	@JoinColumn(name = "roleId")
-	@Convert(converter = RoleConverter.class)
 	private Role role;
 
 	public User() {

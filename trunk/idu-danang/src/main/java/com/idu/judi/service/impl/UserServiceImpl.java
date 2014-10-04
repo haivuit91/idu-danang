@@ -7,7 +7,6 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.idu.judi.exception.UserNotFound;
 import com.idu.judi.model.User;
 import com.idu.judi.repository.UserRepository;
 import com.idu.judi.service.UserService;
@@ -26,11 +25,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@Transactional(rollbackFor = UserNotFound.class)
-	public boolean update(User user) throws UserNotFound {
+	@Transactional
+	public boolean update(User user) {
 		User updateUser = userRepository.findOne(user.getUserId());
-		if (updateUser == null)
-			throw new UserNotFound();
+		if (updateUser == null) {
+			return false;
+		}
 		updateUser.setUserName(user.getUserName());
 		updateUser.setFullName(user.getFullName());
 		updateUser.setBirthOfDay(user.getBirthOfDay());
@@ -45,13 +45,15 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	@Transactional(rollbackFor = UserNotFound.class)
-	public boolean delete(int userId) throws UserNotFound {
+	@Transactional
+	public boolean delete(int userId) {
 		User deleteUser = userRepository.findOne(userId);
-		if (deleteUser == null)
-			throw new UserNotFound();
-		userRepository.delete(deleteUser);
-		return true;
+		try {
+			userRepository.delete(deleteUser);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 	@Override
