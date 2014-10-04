@@ -2,7 +2,6 @@ package com.idu.judi.service;
 
 import java.util.List;
 
-import com.idu.judi.exception.UserNotFound;
 import com.idu.judi.model.User;
 
 public interface UserService {
@@ -23,16 +22,16 @@ public interface UserService {
 	 *            The information of the updated user.
 	 * @return The updated user.
 	 */
-	public boolean update(User user) throws UserNotFound;
+	public boolean update(User user);
 
 	/**
 	 * Deletes a user.
 	 * 
-	 * @param userID
+	 * @param userId
 	 *            The id of the deleted user.
 	 * @return The deleted user.
 	 */
-	public boolean delete(int userId) throws UserNotFound;
+	public boolean delete(int userId);
 
 	/**
 	 * Finds all user.
